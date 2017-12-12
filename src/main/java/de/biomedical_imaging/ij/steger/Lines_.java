@@ -102,6 +102,9 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 
 	final static boolean makeBinaryDefault = false;
 	boolean makeBinary = makeBinaryDefault;
+
+	final static boolean doStackDefault = false;
+	boolean doStack = doStackDefault;
 	
 	OverlapOption overlapOption = OverlapOption.NONE;
 	
@@ -113,7 +116,6 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 	
 	boolean isPreview = false;
 	boolean contrastOrLineWidthChangedOnce = false;
-	boolean doStack = false;
 	
 	private Options usedOptions = null;
 	private static Lines_ instance = null;
@@ -243,6 +245,7 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 		gd.addCheckbox("DisplayResults", displayResults);
 		gd.addCheckbox("Add_to_Manager", addToRoiManager);
 		gd.addCheckbox("Make_Binary", makeBinary);
+		gd.addCheckbox("Process_stack", doStack);
 
 		final String[] overlap = new String[OverlapOption.values().length];
 		for (int i=0; i<overlap.length; i++) {
@@ -280,6 +283,7 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 		displayResults = gd.getNextBoolean();
 		addToRoiManager = gd.getNextBoolean();
 		makeBinary = gd.getNextBoolean();
+		doStack = gd.getNextBoolean();
 		overlapOption = OverlapOption.valueOf(gd.getNextChoice());
 		saveSettings();
 		
@@ -313,6 +317,7 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 		displayResults = Prefs.get("RidgeDetection.displayResults", displayResultsDefault);
 		addToRoiManager = Prefs.get("RidgeDetection.addToRoiManager", addToRoiManagerDefault);
 		makeBinary = Prefs.get("RidgeDetection.makeBinary", makeBinaryDefault);
+		doStack = Prefs.get("RidgeDetection.doStack", doStackDefault);
 		String overlapOptionString = Prefs.get("RidgeDetection.overlapOption", OverlapOption.NONE.name());
 		overlapOption = OverlapOption.valueOf(overlapOptionString);
 		
@@ -337,6 +342,7 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 		Prefs.set("RidgeDetection.displayResults", displayResults);
 		Prefs.set("RidgeDetection.addToRoiManager", addToRoiManager);
 		Prefs.set("RidgeDetection.makeBinary", makeBinary);
+		Prefs.set("RidgeDetection.doStack", doStack);
 		Prefs.set("RidgeDetection.overlapOption", overlapOption.name());
 	}
 	

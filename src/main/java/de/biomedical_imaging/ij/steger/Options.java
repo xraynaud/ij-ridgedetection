@@ -35,6 +35,7 @@ public class Options {
 	  boolean   encapsulated;
 	  boolean   image;
 		OverlapOption overlap;
+		boolean doStack;
 	  
 	  public Options(double sigma, double low, double high, int mode, double minLength, double maxLength, boolean correct, boolean width, boolean extend, boolean postscript, boolean encapsulated, boolean image, OverlapOption overlap) {
 		// TODO Auto-generated constructor stub
@@ -49,6 +50,15 @@ public class Options {
 		  this.encapsulated = encapsulated;
 		  this.image = image;
 		  this.overlap = overlap;
+		   this.doStack = doStack;
+	}
+
+	public boolean getdoStack() {
+		return doStack;
+	}
+
+	public void setdoStack(boolean doStack) {
+		this.doStack = doStack;
 	}
 
 	public double getSigma() {
