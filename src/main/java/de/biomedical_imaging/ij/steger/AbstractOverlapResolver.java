@@ -21,16 +21,24 @@
  */
 package de.biomedical_imaging.ij.steger;
 
+// TODO: Auto-generated Javadoc
 /**
  * Abstract superclass for {@link OverlapResolver} implementations.
  *
  * Provides default {@link #resolve(Lines, Junctions)} implementation that
  * defaults verbosity to {@code false}.
  *
- * @author Mark Hiner <hinerm@gmail.com>
+ * @author Mark Hiner (hinerm@gmail.com)
  */
 public abstract class AbstractOverlapResolver implements OverlapResolver {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.biomedical_imaging.ij.steger.OverlapResolver#resolve(de.biomedical_imaging
+	 * .ij.steger.Lines, de.biomedical_imaging.ij.steger.Junctions)
+	 */
 	@Override
 	public Lines resolve(final Lines lines, final Junctions junctions) {
 		return resolve(lines, junctions, false);

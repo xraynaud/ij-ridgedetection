@@ -21,45 +21,68 @@
  */
 package de.biomedical_imaging.ij.steger;
 
-import ij.IJ;
-
 import java.awt.Checkbox;
 import java.awt.Choice;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import ij.IJ;
+
+/**
+ * The listener interface for receiving resetToDefault events. The class that is
+ * interested in processing a resetToDefault event implements this interface,
+ * and the object created with that class is registered with a component using
+ * the component's `addResetToDefaultListener` method. When the
+ * resetToDefault event occurs, that object's appropriate method is invoked.
+ *
+ */
 public class ResetToDefaultListener implements ActionListener {
 
+	/** The gd. */
 	GenericDialogPlus gd;
+
+	/**
+	 * Instantiates a new reset to default listener.
+	 *
+	 * @param gd
+	 *            the gd
+	 */
 	public ResetToDefaultListener(GenericDialogPlus gd) {
 		this.gd = gd;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
-		//Set settings to default
-		
+
+		// Set settings to default
+
 		TextField textLineWidth = (TextField) gd.getNumericFields().get(0);
 		textLineWidth.setText("" + IJ.d2s(Lines_.lineWidthDefault, 2));
 		textLineWidth.setEditable(true);
-		
+
 		TextField textHighCon = (TextField) gd.getNumericFields().get(1);
 		textHighCon.setText("" + IJ.d2s(Lines_.contrastHighDefault, 0));
 		textHighCon.setEditable(true);
-		
+
 		TextField textLowCon = (TextField) gd.getNumericFields().get(2);
 		textLowCon.setText("" + IJ.d2s(Lines_.contrastLowDefault, 0));
 		textLowCon.setEditable(true);
-		
+
 		TextField textSigma = (TextField) gd.getNumericFields().get(3);
 		textSigma.setText("" + IJ.d2s(Lines_.sigmaDefault, 2));
 		textSigma.setEditable(true);
-		
+
 		TextField textLowThresh = (TextField) gd.getNumericFields().get(4);
 		textLowThresh.setText("" + IJ.d2s(Lines_.lowerThreshDefault, 2));
 		textLowThresh.setEditable(true);
-		
+
 		TextField textUppThresh = (TextField) gd.getNumericFields().get(5);
 		textUppThresh.setText("" + IJ.d2s(Lines_.upperThreshDefault, 2));
 		textUppThresh.setEditable(true);
@@ -67,24 +90,24 @@ public class ResetToDefaultListener implements ActionListener {
 		TextField textMinLength = (TextField) gd.getNumericFields().get(6);
 		textMinLength.setText("" + IJ.d2s(Lines_.minLengthDefault, 2));
 		textMinLength.setEditable(true);
-		
+
 		TextField textMaxLength = (TextField) gd.getNumericFields().get(7);
 		textMaxLength.setText("" + IJ.d2s(Lines_.maxLengthDefault, 2));
 		textMaxLength.setEditable(true);
-		
-		((Checkbox)gd.getCheckboxes().get(0)).setState(Lines_.isDarkLineDefault);
-		((Checkbox)gd.getCheckboxes().get(1)).setState(Lines_.doCorrectPositionDefault);
-		((Checkbox)gd.getCheckboxes().get(2)).setState(Lines_.doEstimateWidthDefault);
-		((Checkbox)gd.getCheckboxes().get(3)).setState(Lines_.doExtendLineDefault);
-		((Checkbox)gd.getCheckboxes().get(4)).setState(Lines_.showJunctionPointsDefault);
-		((Checkbox)gd.getCheckboxes().get(5)).setState(Lines_.showIDsDefault);
-		((Checkbox)gd.getCheckboxes().get(6)).setState(Lines_.verboseDefault);
-		((Checkbox)gd.getCheckboxes().get(7)).setState(Lines_.displayResultsDefault);
-		((Checkbox)gd.getCheckboxes().get(8)).setState(Lines_.addToRoiManagerDefault);
-		((Checkbox)gd.getCheckboxes().get(9)).setState(Lines_.makeBinaryDefault);
-		
-		((Choice)gd.getChoices().get(0)).select(0);
-		
+
+		((Checkbox) gd.getCheckboxes().get(0)).setState(Lines_.isDarkLineDefault);
+		((Checkbox) gd.getCheckboxes().get(1)).setState(Lines_.doCorrectPositionDefault);
+		((Checkbox) gd.getCheckboxes().get(2)).setState(Lines_.doEstimateWidthDefault);
+		((Checkbox) gd.getCheckboxes().get(3)).setState(Lines_.doExtendLineDefault);
+		((Checkbox) gd.getCheckboxes().get(4)).setState(Lines_.showJunctionPointsDefault);
+		((Checkbox) gd.getCheckboxes().get(5)).setState(Lines_.showIDsDefault);
+		((Checkbox) gd.getCheckboxes().get(6)).setState(Lines_.verboseDefault);
+		((Checkbox) gd.getCheckboxes().get(7)).setState(Lines_.displayResultsDefault);
+		((Checkbox) gd.getCheckboxes().get(8)).setState(Lines_.addToRoiManagerDefault);
+		((Checkbox) gd.getCheckboxes().get(9)).setState(Lines_.makeBinaryDefault);
+
+		((Choice) gd.getChoices().get(0)).select(0);
+
 	}
 
 }
