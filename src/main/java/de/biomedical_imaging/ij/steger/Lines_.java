@@ -153,13 +153,7 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 	/** The make binary. */
 	boolean makeBinary = makeBinaryDefault;
 
-<<<<<<< HEAD
-	final static boolean doStackDefault = false;
-	boolean doStack = doStackDefault;
-	
-=======
 	/** The overlap option. */
->>>>>>> 0f3c0ef1a3ab97d6fd0c143469e5668f82f3d205
 	OverlapOption overlapOption = OverlapOption.NONE;
 
 	/** The Constant showIDsDefault. */
@@ -179,15 +173,11 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 
 	/** The contrast or line width changed once. */
 	boolean contrastOrLineWidthChangedOnce = false;
-<<<<<<< HEAD
-	
-=======
 
 	/** The do stack. */
 	boolean doStack = false;
 
 	/** The used options. */
->>>>>>> 0f3c0ef1a3ab97d6fd0c143469e5668f82f3d205
 	private Options usedOptions = null;
 
 	/** The instance. */
@@ -335,7 +325,6 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 		gd.addCheckbox("DisplayResults", displayResults);
 		gd.addCheckbox("Add_to_Manager", addToRoiManager);
 		gd.addCheckbox("Make_Binary", makeBinary);
-		gd.addCheckbox("Process_stack", doStack);
 
 		final String[] overlap = new String[OverlapOption.values().length];
 		for (int i = 0; i < overlap.length; i++) {
@@ -408,7 +397,6 @@ public class Lines_ implements ExtendedPlugInFilter, DialogListener {
 		displayResults = Prefs.get("RidgeDetection.displayResults", displayResultsDefault);
 		addToRoiManager = Prefs.get("RidgeDetection.addToRoiManager", addToRoiManagerDefault);
 		makeBinary = Prefs.get("RidgeDetection.makeBinary", makeBinaryDefault);
-		doStack = Prefs.get("RidgeDetection.doStack", doStackDefault);
 		String overlapOptionString = Prefs.get("RidgeDetection.overlapOption", OverlapOption.NONE.name());
 		overlapOption = OverlapOption.valueOf(overlapOptionString);
 
